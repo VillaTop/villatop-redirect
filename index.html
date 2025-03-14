@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nukreipiama...</title>
+  <script>
+    const url = "https://villatop.eu";
+    const ua = navigator.userAgent.toLowerCase();
+
+    if (ua.includes('instagram') || ua.includes('fbav') || ua.includes('fb_iab')) {
+      if (/android/.test(ua)) {
+        window.location.href = "intent://villatop.eu#Intent;scheme=https;package=com.android.chrome;end";
+      } else if (/iphone|ipad|ipod/.test(ua)) {
+        window.location.href = "googlechrome://villatop.eu";
+        setTimeout(function() {
+          window.location.href = url;
+        }, 2000);
+      } else {
+        window.location.href = url;
+      }
+    } else {
+      window.location.href = url;
+    }
+  </script>
+</head>
+<body>
+Nukreipiama į pagrindinę naršyklę...
+</body>
+</html>
